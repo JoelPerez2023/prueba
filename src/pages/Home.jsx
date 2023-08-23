@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 import { getBooks } from "../lib/books.requests";
-import { ItemListContainer } from "../components";
+import { ItemListContainer, } from "../components";
+import { Loader } from "../components/Loader/Loader";
 
 export const Home = () => {
   
   const [products, setProducts] = useState([]); 
   const [isLoading, setIsLoading] = useState(true);
-  //Poner en efectos peticiones o cosas asincronas
+  
   useEffect(() => {
 
-   getBooks() //Se simula una peticion
+   getBooks() 
     .then(res => {
-      setIsLoading(false); //Cuando esta se resuelve cambia al estado para dejar de cargar
-      setProducts(res)} //Ademas setea productos con lo que resolvio la promesa (no hay catch porque estamos segurods de que siempre hay algo)
+      setIsLoading(false); 
+      setProducts(res)} 
       
       ) 
 
@@ -22,10 +23,11 @@ export const Home = () => {
 
   return (
     <div>
-      <div className="container">
-        <h5>{isLoading ? "Cargando ..." : ""}</h5>
-        <ItemListContainer products={products} />
-      </div>
+      {isLoading ? (<Loader />) : (
+        <div className="container">
+          <ItemListContainer products={products} />
+        </div>
+      )}
     </div>
   );
 };

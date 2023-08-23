@@ -4,6 +4,8 @@
     gap: 8px;
     max-width: max-content;
     align-items: center;
+    font-style: italic;
+    
 }
 .item-count__buttons{
     display: flex;

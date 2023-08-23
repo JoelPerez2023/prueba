@@ -1,9 +1,10 @@
 import "./NavBar.css";
 import { CartWidget } from "../CartWidget/CartWidget";
 import { NavLink, Outlet } from "react-router-dom";
+import styled from 'styled-components';
+
 
 export const NavBar = () => {
-  
   return (
     <>
       <header className="navbar">
@@ -44,14 +45,7 @@ export const NavBar = () => {
                 Fantasia
               </NavLink>
 
-              <NavLink
-                to={""}
-                style={({ isActive }) => ({
-                  color: isActive ? "#51c363" : "#8686d2",
-                })}
-              >
-                Registrate
-              </NavLink>
+          
               
             </nav>
             <CartWidget />
@@ -59,7 +53,7 @@ export const NavBar = () => {
         </div>
       </header>
       <Outlet />
-      <footer>Footer</footer>
+      
     </>
   );
 };
